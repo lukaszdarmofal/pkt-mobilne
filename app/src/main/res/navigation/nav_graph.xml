@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.pkt.ui.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" />
+    <fragment
+        android:id="@+id/menuChoiceFragment"
+        android:name="com.example.pkt.ui.MenuChoiceFragment"
+        android:label="fragment_menu_choice"
+        tools:layout="@layout/fragment_menu_choice" />
+    <fragment
+        android:id="@+id/readyOrderFragment"
+        android:name="com.example.pkt.ui.ReadyOrderFragment"
+        android:label="fragment_ready_order"
+        tools:layout="@layout/fragment_ready_order" />
+    <fragment
+        android:id="@+id/customOrderFragment"
+        android:name="com.example.pkt.ui.CustomOrderFragment"
+        android:label="fragment_custom_order"
+        tools:layout="@layout/fragment_custom_order" />
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.example.pkt.ui.SummaryFragment"
+        android:label="fragment_summary"
+        tools:layout="@layout/fragment_summary" />
+    <fragment
+        android:id="@+id/barFragment"
+        android:name="com.example.pkt.ui.BarFragment"
+        android:label="fragment_bar"
+        tools:layout="@layout/fragment_bar" />
+</navigation>
