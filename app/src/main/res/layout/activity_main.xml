@@ -7,18 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity">
 
+
     <androidx.fragment.app.FragmentContainerView
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/navHostFragmentContainer"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:navGraph="@navigation/nav_graph"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/totalBarFragmentContainer"
+        android:name="com.example.pkt.ui.BarFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_bar" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:menu="@menu/bottom_nav_menu"/>
-    
+        app:menu="@menu/bottom_nav_menu" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

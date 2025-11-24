@@ -9,13 +9,13 @@
 
     <item
         android:id="@+id/menuChoiceFragment"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_cart"
         android:title="Order"
         />
 
     <item
         android:id="@+id/summaryFragment"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_summary"
         android:title="Summary"
         />
 

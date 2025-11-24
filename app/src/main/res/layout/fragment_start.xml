@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.StartFragment">
+    tools:context=".ui.StartFragment"
+    android:orientation="vertical"
+    android:background="#aabbff">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="375dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:text="Polska Kuchnia Tradycyjna"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:layout_margin="30dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:gravity="center">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:text="Złóż Zamówienie"
+            android:textSize="20sp"
+            android:layout_margin="30dp"
+            android:padding="30dp"
+            android:backgroundTint="#9988ee"/>
+
+    </LinearLayout>
+
+</LinearLayout>
