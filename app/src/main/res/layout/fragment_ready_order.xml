@@ -1,14 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ReadyOrderFragment">
+    tools:context=".ui.ReadyOrderFragment"
+    android:orientation="vertical"
+    android:background="@color/backgroundColor1">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Wybierz zupę:"/>
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/soupSpinner"
+            />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/separatorColor"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Wybierz drugie danie:"/>
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/mainMealSpinner"
+            />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/separatorColor"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Wybierz napój:"/>
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/drinkSpinner"
+            />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/separatorColor"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:paddingVertical="10dp"
+        android:padding="10dp"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/displaySoup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wybrana zupa:  - - -"
+            android:textSize="20sp"
+            android:layout_marginVertical="10dp"/>
+
+        <TextView
+            android:id="@+id/displayMainMeal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wybrane drugie danie:  - - - "
+            android:textSize="20sp"
+            android:layout_marginVertical="10dp"/>
+
+        <TextView
+            android:id="@+id/displayDrink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wybrany napój:  - - -"
+            android:textSize="20sp"
+            android:layout_marginVertical="10dp"/>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/separatorColor"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:gravity="top|center"
+        tools:ignore="UselessParent">
 
-</FrameLayout>
+        <Button
+            android:id="@+id/submitOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Przejdź do podsumowania"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:padding="15dp"
+            android:backgroundTint="#9988ee"/>
+
+        <Button
+            android:id="@+id/cancelOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Powrót do menu"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:padding="15dp"
+            android:backgroundTint="#dd8888"/>
+
+    </LinearLayout>
+
+</LinearLayout>

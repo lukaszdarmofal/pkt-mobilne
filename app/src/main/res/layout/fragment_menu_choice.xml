@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.MenuChoiceFragment"
     android:orientation="vertical"
-    android:background="#aabbff">
+    android:background="@color/backgroundColor1">
 
     <LinearLayout
         android:layout_width="match_parent"
