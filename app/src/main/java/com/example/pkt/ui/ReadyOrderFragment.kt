@@ -1,10 +1,15 @@
 package com.example.pkt.ui
 
+import com.example.pkt.viewmodel.readyMealArray
+import com.example.pkt.viewmodel.soupArray
+import com.example.pkt.viewmodel.drinkArray
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.pkt.R
@@ -51,6 +56,11 @@ class ReadyOrderFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        val soupSpinner: Spinner = binding.soupSpinner
+        //ArrayAdapter.createFromResource(this, )
+
 
         binding.cancelOrder.setOnClickListener {
             findNavController().navigate(R.id.action_readyOrderFragment_to_menuChoiceFragment)
