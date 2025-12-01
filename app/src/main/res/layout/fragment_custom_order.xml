@@ -7,10 +7,168 @@
     android:orientation="vertical"
     android:background="#aabbff">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Custom Order" />
+        android:layout_height="wrap_content"
+        android:text="Danie Główne:"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        tools:ignore="UselessLeaf,UselessParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Mięso:"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/customMeatSpinner"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        tools:ignore="UselessLeaf,UselessParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Dodatek:"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/customDodatekSpinner"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        tools:ignore="UselessLeaf,UselessParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Sałatka:"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="10dp"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/customSaladSpinner"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zupa:"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        tools:ignore="UselessLeaf,UselessParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:padding="10dp">
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/customSoupSpinner"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Napój:"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        tools:ignore="UselessLeaf,UselessParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="20dp"
+        android:padding="10dp">
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/customDrinkSpinner"
+            />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_marginVertical="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/separatorColor"/>
+
+
+    <LinearLayout
+        tools:ignore="UselessLeaf,UselessParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/submitCustomOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Zamów"
+            android:textSize="18sp"
+            android:layout_margin="20dp"
+            android:padding="15dp"
+            android:backgroundTint="#9988ee"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Cena: 0zł"
+            android:gravity="center"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>
