@@ -54,7 +54,7 @@ class CustomOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // val customMeatSpinner : Spinner = binding.customMeatSpinner
+
 
 
         binding.submitCustomOrder.setOnClickListener {

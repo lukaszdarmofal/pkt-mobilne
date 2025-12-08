@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.pkt.R
 import com.example.pkt.databinding.FragmentReadyOrderBinding
+import com.example.pkt.model.Soup
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,10 +58,17 @@ class ReadyOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val soupList = soupArray
+        val soupMap = mutableMapOf<String, Soup>()
+
+        soupList.forEach {
+            soupMap[it.name] = it
+        }
 
         val soupSpinner: Spinner = binding.soupSpinner
-        //ArrayAdapter.createFromResource(this, )
+        val soupAdapter: ArrayAdapter<*> = ArrayAdapter<Any?>(binding.root.context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, soupMap.keys.toList())
 
+        soupSpinner.adapter = soupAdapter
 
         binding.cancelOrder.setOnClickListener {
             findNavController().navigate(R.id.action_readyOrderFragment_to_menuChoiceFragment)
