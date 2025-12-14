@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.pkt.R
 import com.example.pkt.databinding.FragmentReadyOrderBinding
+import com.example.pkt.model.Drink
+import com.example.pkt.model.Meal
 import com.example.pkt.model.Soup
 
 // TODO: Rename parameter arguments, choose names that match
@@ -58,6 +61,13 @@ class ReadyOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.submitOrder.setOnClickListener {
+
+        }
+
+
+
         val soupList = soupArray
         val soupMap = mutableMapOf<String, Soup>()
 
@@ -70,15 +80,97 @@ class ReadyOrderFragment : Fragment() {
 
         soupSpinner.adapter = soupAdapter
 
+        soupSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedSoupName = parent?.getItemAtPosition(position) as String
+                val selectedSoup = soupMap[selectedSoupName]
+
+                binding.displaySoup.text = "Wybrana zupa: ${selectedSoup?.name} || ${selectedSoup?.price}"
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+        }
+
+
+        val drinkList = drinkArray
+        val drinkMap = mutableMapOf<String, Drink>()
+
+        drinkList.forEach {
+            drinkMap[it.name] = it
+        }
+
+        val drinkSpinner: Spinner = binding.drinkSpinner
+        val drinkAdapter: ArrayAdapter<*> =
+            ArrayAdapter(
+                binding.root.context,
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                drinkMap.keys.toList()
+            )
+
+        drinkSpinner.adapter = drinkAdapter
+
+        drinkSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedDrinkName = parent?.getItemAtPosition(position) as String
+                val selectedDrink = drinkMap[selectedDrinkName]
+
+                binding.displayDrink.text =
+                    "Wybrany napój: ${selectedDrink?.name} || ${selectedDrink?.price}"
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
         binding.cancelOrder.setOnClickListener {
             findNavController().navigate(R.id.action_readyOrderFragment_to_menuChoiceFragment)
         }
 
-        binding.submitOrder.setOnClickListener {
-            binding.displayDrink.text = "nie"
-            binding.displaySoup.text = "nie"
-            binding.displayMainMeal.text = "nie"
+        val readyMealList = readyMealArray
+        val readyMealMap = mutableMapOf<String, Meal>()
+
+        readyMealList.forEach {
+            readyMealMap[it.name] = it
         }
+
+        val readyMealSpinner: Spinner = binding.mainMealSpinner
+        val readyMealAdapter: ArrayAdapter<*> =
+            ArrayAdapter(
+                binding.root.context,
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                readyMealMap.keys.toList()
+            )
+
+        readyMealSpinner.adapter = readyMealAdapter
+
+        readyMealSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val selectedReadyMealName = parent?.getItemAtPosition(position) as String
+                val selectedReadyMeal = readyMealMap[selectedReadyMealName]
+
+                binding.displayMainMeal.text =
+                    "Wybrane danie gotowe: ${selectedReadyMeal?.name} || ${selectedReadyMeal?.price}"
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+
     }
 
     companion object {
