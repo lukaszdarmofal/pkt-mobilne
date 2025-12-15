@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.pkt.R
 import com.example.pkt.databinding.FragmentSummaryBinding
 import com.example.pkt.viewmodel.OrderViewModel
@@ -59,6 +60,17 @@ class SummaryFragment : Fragment() {
 
         sharedViewModel.orderPrice.observe(viewLifecycleOwner) { price ->
             binding.displayPrice.text = "Cena: ${price}zł"
+        }
+
+        binding.submitOrder.setOnClickListener {
+
+
+
+            findNavController().navigate(R.id.action_readyOrderFragment_to_menuChoiceFragment)
+        }
+
+        binding.cancelOrder.setOnClickListener {
+            findNavController().navigate(R.id.action_readyOrderFragment_to_menuChoiceFragment)
         }
 
     }

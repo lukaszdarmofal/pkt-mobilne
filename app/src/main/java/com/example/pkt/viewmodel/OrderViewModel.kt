@@ -43,9 +43,16 @@ class OrderViewModel: ViewModel() {
     private val _orderPrice = MutableLiveData<Int>()
     val orderPrice get() = _orderPrice
 
+    private val _totalValue = MutableLiveData<Int>(0)
+    val totalValue get() = _totalValue
+
     fun sendOrder(content: String, price: Int) {
         _fullOrder.value = content
         _orderPrice.value = price
+    }
+
+    fun updateTotal(price: Int) {
+        _totalValue.value += price
     }
 
 
