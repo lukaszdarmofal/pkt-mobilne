@@ -12,12 +12,15 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.pkt.R
 import com.example.pkt.databinding.FragmentReadyOrderBinding
 import com.example.pkt.model.Drink
 import com.example.pkt.model.Meal
 import com.example.pkt.model.Soup
+import com.example.pkt.viewmodel.OrderViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,6 +37,7 @@ class ReadyOrderFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private val sharedViewModel: OrderViewModel by activityViewModels()
     private var _binding: FragmentReadyOrderBinding? = null
     private val binding get() = _binding!!
 
@@ -61,12 +65,9 @@ class ReadyOrderFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.submitOrder.setOnClickListener {
-
-        }
-
-
+        var selectedReadyMeal: Meal? = readyMealArray[0]
+        var selectedSoup: Soup? = soupArray[0]
+        var selectedDrink: Drink? = drinkArray[0]
 
         val soupList = soupArray
         val soupMap = mutableMapOf<String, Soup>()
@@ -88,9 +89,9 @@ class ReadyOrderFragment : Fragment() {
                 id: Long
             ) {
                 val selectedSoupName = parent?.getItemAtPosition(position) as String
-                val selectedSoup = soupMap[selectedSoupName]
+                selectedSoup = soupMap[selectedSoupName]
 
-                binding.displaySoup.text = "Wybrana zupa: ${selectedSoup?.name} || ${selectedSoup?.price}"
+                binding.displaySoup.text = "Wybrana zupa: ${selectedSoup?.name} || ${selectedSoup?.price}zl"
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -123,10 +124,10 @@ class ReadyOrderFragment : Fragment() {
                 id: Long
             ) {
                 val selectedDrinkName = parent?.getItemAtPosition(position) as String
-                val selectedDrink = drinkMap[selectedDrinkName]
+                selectedDrink = drinkMap[selectedDrinkName]
 
                 binding.displayDrink.text =
-                    "Wybrany napój: ${selectedDrink?.name} || ${selectedDrink?.price}"
+                    "Wybrany napój: ${selectedDrink?.name} || ${selectedDrink?.price}zl"
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -161,15 +162,33 @@ class ReadyOrderFragment : Fragment() {
                 id: Long
             ) {
                 val selectedReadyMealName = parent?.getItemAtPosition(position) as String
-                val selectedReadyMeal = readyMealMap[selectedReadyMealName]
+                selectedReadyMeal = readyMealMap[selectedReadyMealName]
 
                 binding.displayMainMeal.text =
-                    "Wybrane danie gotowe: ${selectedReadyMeal?.name} || ${selectedReadyMeal?.price}"
+                    "Wybrane danie gotowe: ${selectedReadyMeal?.name} || ${selectedReadyMeal?.price}zl"
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
+        binding.submitOrder.setOnClickListener {
+            val fullPrice: Int = selectedReadyMeal!!.price + selectedDrink!!.price + selectedSoup!!.price
+
+            val fullMeal = "${selectedReadyMeal!!.name} (${selectedReadyMeal!!.price}):\n" +
+                    "${selectedReadyMeal!!.contents.contentToString()}\n\n" +
+                    "Zupa: ${selectedSoup!!.name} (${selectedSoup!!.price})\n" +
+                    "Napój: ${selectedDrink!!.name} (${selectedDrink!!.price})\n"
+            println(fullMeal)
+            println(fullPrice)
+
+            sharedViewModel.sendOrder(fullMeal, fullPrice)
+
+            findNavController().navigate(R.id.action_readyOrderFragment_to_summaryFragment)
+        }
+
+        binding.cancelOrder.setOnClickListener {
+            findNavController().navigate(R.id.action_readyOrderFragment_to_menuChoiceFragment)
+        }
 
     }
 

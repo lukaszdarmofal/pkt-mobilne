@@ -1,5 +1,7 @@
 package com.example.pkt.viewmodel
 
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.pkt.model.Drink
 import com.example.pkt.model.Meal
 import com.example.pkt.model.Soup
@@ -33,3 +35,18 @@ public val soupArray =
         Soup("Krupnik", 8),
         Soup("Zupa ogórkowa", 9)
     )
+
+
+class OrderViewModel: ViewModel() {
+    private val _fullOrder = MutableLiveData<String>()
+    val fullOrder get() = _fullOrder
+    private val _orderPrice = MutableLiveData<Int>()
+    val orderPrice get() = _orderPrice
+
+    fun sendOrder(content: String, price: Int) {
+        _fullOrder.value = content
+        _orderPrice.value = price
+    }
+
+
+}

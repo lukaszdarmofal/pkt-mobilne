@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.example.pkt.R
 import com.example.pkt.databinding.FragmentSummaryBinding
+import com.example.pkt.viewmodel.OrderViewModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,6 +21,8 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class SummaryFragment : Fragment() {
+
+    private val sharedViewModel: OrderViewModel by activityViewModels()
     private var _binding: FragmentSummaryBinding? = null
     private val binding get() = _binding!!
 
@@ -44,6 +48,19 @@ class SummaryFragment : Fragment() {
     ): View? {
         _binding = FragmentSummaryBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        sharedViewModel.fullOrder.observe(viewLifecycleOwner) { content ->
+            binding.displayOrder.text = content
+        }
+
+        sharedViewModel.orderPrice.observe(viewLifecycleOwner) { price ->
+            binding.displayPrice.text = "Cena: ${price}zł"
+        }
+
     }
 
     companion object {
