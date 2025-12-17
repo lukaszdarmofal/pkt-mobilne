@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.pkt.model.Drink
 import com.example.pkt.model.Meal
+import com.example.pkt.model.MealContent
 import com.example.pkt.model.Soup
 
 public val readyMealArray =
@@ -35,6 +36,32 @@ public val soupArray =
         Soup("Krupnik", 8),
         Soup("Zupa ogórkowa", 9)
     )
+
+val meatsArray = listOf(
+    MealContent("Schabowy", 12),
+    MealContent("Gulasz wieprzowy", 11),
+    MealContent("Mielony", 10),
+    MealContent("Karkówka", 13),
+    MealContent("Devolay", 14),
+    MealContent("Panierowany kurczak", 11)
+)
+
+val sidesArray = listOf(
+    MealContent("Ziemniaki", 5),
+    MealContent("Ziemniaki opiekane", 6),
+    MealContent("Puree ziemniaczane", 5),
+    MealContent("Frytki", 6),
+    MealContent("Kluski", 5),
+    MealContent("Ryż", 4)
+)
+
+val saladsArray = listOf(
+    MealContent("Mizeria", 4),
+    MealContent("Czerwona kapusta", 4),
+    MealContent("Buraczki", 4),
+    MealContent("Coleslaw", 4),
+    MealContent("Surówka z marchwi", 4)
+)
 
 
 class OrderViewModel: ViewModel() {

@@ -64,13 +64,14 @@ class SummaryFragment : Fragment() {
 
         binding.submitOrder.setOnClickListener {
 
+            sharedViewModel.updateTotal(sharedViewModel.orderPrice.value)
+            sharedViewModel.sendOrder("", 0)
 
-
-            findNavController().navigate(R.id.action_readyOrderFragment_to_menuChoiceFragment)
+            findNavController().navigate(R.id.action_summaryFragment_to_startFragment)
         }
 
         binding.cancelOrder.setOnClickListener {
-            findNavController().navigate(R.id.action_readyOrderFragment_to_menuChoiceFragment)
+            findNavController().navigate(R.id.action_summaryFragment_to_startFragment)
         }
 
     }

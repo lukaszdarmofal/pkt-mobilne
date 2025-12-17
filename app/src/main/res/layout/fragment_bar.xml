@@ -7,17 +7,17 @@
     android:orientation="vertical"
     android:background="#ffffff">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:text="Do zaplaty: :3" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="18sp"-->
+<!--        android:text="Do zaplaty: :3" />-->
 
     <TextView
         android:id="@+id/totalTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:text="Suma: :3" />
+        android:text="Suma: 0zl" />
 
 </com.google.android.material.appbar.AppBarLayout>
